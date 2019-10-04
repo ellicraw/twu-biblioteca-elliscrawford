@@ -4,18 +4,22 @@ import java.util.*;
 
 public class Library {
 
-    HashSet<Book> library = new HashSet<Book>();
+    ArrayList<Book> library = new ArrayList<Book>();
 
-    public HashSet<Book> createLibrary(){
-        library.add(new Book("Animal Farm"));
-        library.add(new Book("Educated"));
-        library.add(new Book("The Catcher in the Rye"));
-        library.add(new Book("Lolita"));
-        library.add(new Book("Maus"));
-        library.add(new Book("The Phantom Tollbooth"));
-        library.add(new Book("Born a Crim"));
-        library.add(new Book("Slaughterhouse-Five"));
-
+    public ArrayList<Book> createLibrary(){
+        library.add(new Book("Animal Farm", "George Orwell", 1945));
+        library.add(new Book("Educated", "Tara Westover", 2018));
+        library.add(new Book("The Catcher in the Rye","J. D. Salinger", 1951));
         return library;
     }
+
+    public void printLibrary () {
+        System.out.println("Title" + " | " + "Author" + " | " + "Publication Year");
+        System.out.println("---------------------------------");
+
+        for (Book l : library) {
+            System.out.println(l.getTitle() + " | " + l.getAuthor() + " | " + l.getYearOfPublication());
+        }
+    }
+
 }
