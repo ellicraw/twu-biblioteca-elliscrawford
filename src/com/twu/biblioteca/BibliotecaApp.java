@@ -12,10 +12,6 @@ public class BibliotecaApp {
         ArrayList<Book> library = lib.createLibrary();
         Menu menu = new Menu(lib);
         menu.displayMenu();
-        System.out.print("Choose an option: ");
-        Scanner scan = new Scanner(System.in);
-        char userInput = scan.next().charAt(0);
-        menu.userOption(userInput);
 
 
     }
