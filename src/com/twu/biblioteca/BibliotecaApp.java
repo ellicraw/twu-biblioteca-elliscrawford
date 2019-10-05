@@ -8,11 +8,14 @@ public class BibliotecaApp {
     public static void main(String[] args) {
         Welcome message = new Welcome();
         message.welcomeMessage();
-//        System.out.println("Welcome to Biblioteca. Your one-stop-shop got great book titles in Bangalore!");
-
         Library lib = new Library();
         ArrayList<Book> library = lib.createLibrary();
-        lib.printLibrary();
+        Menu menu = new Menu(lib);
+        menu.displayMenu();
+        System.out.print("Choose an option: ");
+        Scanner scan = new Scanner(System.in);
+        char userInput = scan.next().charAt(0);
+        menu.userOption(userInput);
 
 
     }
