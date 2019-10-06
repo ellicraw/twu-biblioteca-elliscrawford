@@ -11,13 +11,6 @@ public class Library {
         this.books = new ArrayList<Book>();
     }
 
-//    public ArrayList<Book> createLibrary(){
-//        library.add(new Book("Animal Farm", "George Orwell", 1945));
-//        library.add(new Book("Educated", "Tara Westover", 2018));
-//        library.add(new Book("The Catcher in the Rye","J. D. Salinger", 1951));
-//        return library;
-//    }
-
     public void addBooks(Book... libraryItemsToAdd) {
         for(Book item : libraryItemsToAdd){
             books.add(item);
@@ -36,8 +29,14 @@ public class Library {
 
     public void checkOut() {
         String checkoutTitle = getTitle();
-        removeBook(checkoutTitle);
-        System.out.println("Thank you! Enjoy your book!");
+        if(isValidCheckOut(checkoutTitle)) {
+            removeBook(checkoutTitle);
+            System.out.println("Thank you! Enjoy your book!");
+        }
+        else {
+
+            System.out.println("Please enter an available book");
+        }
     }
 
     private void removeBook(String title) {
@@ -55,8 +54,8 @@ public class Library {
         return title;
     }
 
-    private boolean isTitleValid(String title) {
-        return true;
+    private boolean isValidCheckOut(String title){
+        return books.stream().anyMatch(book -> book.getTitle().equals(title));
     }
 
 }
