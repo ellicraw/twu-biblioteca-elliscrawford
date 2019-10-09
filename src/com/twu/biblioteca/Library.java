@@ -34,8 +34,8 @@ public class Library {
             System.out.println("Thank you! Enjoy your book!");
         }
         else {
-
-            System.out.println("Please enter an available book");
+            System.out.println("Sorry, that book is unavailable");
+            checkOut();
         }
     }
 
