@@ -32,6 +32,10 @@ public class Menu {
         chosenOption.run(library);
     }
 
+    public boolean isValidOption(String userInput) {
+        return options.stream().anyMatch(opt -> opt.getAction().equals(userInput));
+    }
+
 }
 
 

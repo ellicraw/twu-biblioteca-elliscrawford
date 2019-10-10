@@ -6,12 +6,6 @@ import java.lang.*;
 public class BibliotecaApp {
 
     public static void main(String[] args) {
-//        Welcome message = new Welcome();
-//        message.welcomeMessage();
-//        Library library = setUp();
-//        ArrayList<Book> library = lib.createLibrary();
-//        Menu menu = new Menu(lib);
-//        menu.displayMenu();
     BibliotecaApp biblioteca = new BibliotecaApp();
     biblioteca.runApp();
 
@@ -28,8 +22,13 @@ public class BibliotecaApp {
             menu.showOptions();
             Scanner scan = new Scanner(System.in);
             String userInput = scan.nextLine();
+            if(menu.isValidOption(userInput)) {
+                menu.chooseOption(userInput);
+            }
+            else {
+                System.out.println("Sorry, please choose a valid option");
 
-            menu.chooseOption(userInput);
+            }
         }
 
     }
@@ -52,6 +51,5 @@ public class BibliotecaApp {
         menu.addOptions(listBooksOption,checkOutOption,checkInOption,quitOption);
         return menu;
     }
-
 
 }

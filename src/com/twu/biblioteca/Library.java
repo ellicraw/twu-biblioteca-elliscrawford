@@ -34,7 +34,7 @@ public class Library {
             System.out.println("Thank you! Enjoy your book!");
         }
         else {
-            System.out.println("Sorry, that book is unavailable");
+            System.out.println("Sorry, that book is unavailable. Try a");
             checkOut();
         }
     }
@@ -44,6 +44,9 @@ public class Library {
         if(isValidCheckIn(checkInTitle)) {
             addBook(checkInTitle);
             System.out.println("Thank you for returning the book");
+        }
+        else {
+            System.out.println("That is not a valid book to return");
         }
     }
 
@@ -79,4 +82,5 @@ public class Library {
     private boolean isValidCheckIn(String title) {
         return checkedOutBooks.stream().anyMatch(book -> book.getTitle().equals(title));
     }
+
 }
