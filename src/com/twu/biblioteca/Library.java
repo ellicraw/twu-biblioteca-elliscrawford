@@ -43,6 +43,7 @@ public class Library {
         String checkInTitle = getTitle();
         if(isValidCheckIn(checkInTitle)) {
             addBook(checkInTitle);
+            System.out.println("Thank you for returning the book");
         }
     }
 
