@@ -13,6 +13,6 @@ public class ListBooksOption implements MenuOptions {
 
     @Override
     public void run(Library library) {
-            library.printLibrary();
+            library.printBooks();
     }
 }

@@ -5,10 +5,12 @@ import java.util.*;
 public class Library {
 
     private ArrayList<Book> books;
+    private ArrayList<Movie> movies;
     private ArrayList<Book> checkedOutBooks = new ArrayList<Book>();
 
     public Library() {
         this.books = new ArrayList<Book>();
+        this.movies = new ArrayList<Movie>();
     }
 
     public void addBooks(Book... libraryItemsToAdd) {
@@ -18,12 +20,27 @@ public class Library {
 
     }
 
-    public void printLibrary() {
+    public void addMovies(Movie... libraryItemsToAdd) {
+        for (Movie item: libraryItemsToAdd) {
+            movies.add(item);
+        }
+    }
+
+    public void printBooks() {
         System.out.println("Title" + " | " + "Author" + " | " + "Publication Year");
         System.out.println("---------------------------------");
 
-        for (Book l : books) {
-            System.out.println(l.getTitle() + " | " + l.getAuthor() + " | " + l.getYearOfPublication());
+        for (Book b : books) {
+            System.out.println(b.getTitle() + " | " + b.getAuthor() + " | " + b.getYearOfPublication());
+        }
+    }
+
+    public void printMovies() {
+        System.out.println("Title" + " | " + "Director" + " | " + "Year" + " | " + "Rating");
+        System.out.println("---------------------------------------------");
+
+        for (Movie m : movies) {
+            System.out.println(m.getTitle() + " | " + m.getDirector() + " | " + m.getYearOfPublication() + " | " + m.getRating());
         }
     }
 
@@ -34,7 +51,7 @@ public class Library {
             System.out.println("Thank you! Enjoy your book!");
         }
         else {
-            System.out.println("Sorry, that book is unavailable. Try a");
+            System.out.println("Sorry, that book is unavailable. Try again");
             checkOut();
         }
     }

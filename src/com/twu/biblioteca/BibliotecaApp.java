@@ -38,17 +38,22 @@ public class BibliotecaApp {
         Book b1 = new Book("Animal Farm", "George Orwell", 1945);
         Book b2 = new Book("Educated", "Tara Westover", 2018);
         Book b3 = new Book("The Catcher in the Rye","J. D. Salinger", 1951);
+        Movie m1 = new Movie("Moonlight", 2016, "Barry Jenkins", 9);
+        Movie m2 = new Movie("Lady Bird", 2017, "Greta Gerwig", 9);
+        Movie m3 = new Movie("The Big Sick", 2017, "Michael Showalter", 8);
         library.addBooks(b1, b2, b3);
+        library.addMovies(m1, m2, m3);
         return library;
     }
 
     private Menu setupMenu(Library library){
         ListBooksOption listBooksOption = new ListBooksOption();
+        ListMoviesOption listMoviesOption = new ListMoviesOption();
         CheckOutOption checkOutOption = new CheckOutOption();
         CheckInOption checkInOption = new CheckInOption();
         QuitOption quitOption = new QuitOption();
         Menu menu = new Menu(library);
-        menu.addOptions(listBooksOption,checkOutOption,checkInOption,quitOption);
+        menu.addOptions(listBooksOption, listMoviesOption, checkOutOption,checkInOption,quitOption);
         return menu;
     }
 

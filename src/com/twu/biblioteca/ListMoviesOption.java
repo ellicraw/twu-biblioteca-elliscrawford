@@ -1,18 +1,18 @@
 package com.twu.biblioteca;
 
-public class CheckOutOption implements MenuOptions {
+public class ListMoviesOption implements MenuOptions {
     @Override
     public String name() {
-        return "(d) Checkout Book";
+        return "(b) List Movies";
     }
 
     @Override
     public String getAction() {
-        return "d";
+        return "b";
     }
 
     @Override
     public void run(Library library) {
-        library.checkOut();
+        library.printMovies();
     }
 }
