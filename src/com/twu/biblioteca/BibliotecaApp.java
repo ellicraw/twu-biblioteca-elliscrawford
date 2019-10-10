@@ -46,9 +46,10 @@ public class BibliotecaApp {
     private Menu setupMenu(Library library){
         ListBooksOption listBooksOption = new ListBooksOption();
         CheckOutOption checkOutOption = new CheckOutOption();
+        CheckInOption checkInOption = new CheckInOption();
         QuitOption quitOption = new QuitOption();
         Menu menu = new Menu(library);
-        menu.addOptions(listBooksOption,checkOutOption,quitOption);
+        menu.addOptions(listBooksOption,checkOutOption,checkInOption,quitOption);
         return menu;
     }
 

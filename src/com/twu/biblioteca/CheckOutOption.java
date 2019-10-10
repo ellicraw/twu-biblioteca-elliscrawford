@@ -3,7 +3,7 @@ package com.twu.biblioteca;
 public class CheckOutOption implements MenuOptions {
     @Override
     public String name() {
-        return "(b) Checkout Books";
+        return "(b) Checkout Book";
     }
 
     @Override

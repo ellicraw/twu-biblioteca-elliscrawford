@@ -39,6 +39,13 @@ public class Library {
         }
     }
 
+    public void checkIn() {
+        String checkInTitle = getTitle();
+        if(isValidCheckIn(checkInTitle)) {
+            addBook(checkInTitle);
+        }
+    }
+
     private void removeBook(String title) {
         for (Book b : new ArrayList<Book>(books)) {
             if(b.getTitle().equals(title)) {
@@ -47,6 +54,16 @@ public class Library {
             }
         }
     }
+
+    private  void addBook(String title) {
+        for (Book b : new ArrayList<Book>(checkedOutBooks)) {
+            if(b.getTitle().equals(title)) {
+                books.add(b);
+                checkedOutBooks.remove(b);
+            }
+        }
+    }
+
     private String getTitle() {
         System.out.println("Please enter the title of the book you would like to checkout: ");
         Scanner scan = new Scanner(System.in);
@@ -58,4 +75,7 @@ public class Library {
         return books.stream().anyMatch(book -> book.getTitle().equals(title));
     }
 
+    private boolean isValidCheckIn(String title) {
+        return checkedOutBooks.stream().anyMatch(book -> book.getTitle().equals(title));
+    }
 }
