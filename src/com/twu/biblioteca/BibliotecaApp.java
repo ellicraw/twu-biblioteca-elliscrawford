@@ -12,25 +12,27 @@ public class BibliotecaApp {
     }
 
     public void runApp() {
-        Welcome message = new Welcome();
+        Welcome welcome = new Welcome("123-4567");
         Library library = setupLibrary();
         Menu menu = setupMenu(library);
 
-        message.welcomeMessage();
-
-        while(true) {
-            menu.showOptions();
-            Scanner scan = new Scanner(System.in);
-            String userInput = scan.nextLine();
-            if(menu.isValidOption(userInput)) {
-                menu.chooseOption(userInput);
-            }
-            else {
-                System.out.println("Sorry, please choose a valid option");
-
+        welcome.welcomeMessage();
+        if (welcome.isUserAccountValid(welcome.setUserAccountNum())) {
+            while (true) {
+                menu.showOptions();
+                Scanner scan = new Scanner(System.in);
+                String userInput = scan.nextLine();
+                if (menu.isValidOption(userInput)) {
+                    menu.chooseOption(userInput);
+                } else {
+                    System.out.println("Sorry, please choose a valid option");
+                }
             }
         }
-
+        else {
+            System.out.println("Sorry, please choose a valid option");
+            runApp();
+        }
     }
 
     private Library setupLibrary(){
