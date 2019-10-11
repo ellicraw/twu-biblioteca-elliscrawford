@@ -12,12 +12,13 @@ public class BibliotecaApp {
     }
 
     public void runApp() {
-        Welcome welcome = new Welcome("123-4567");
+        Welcome welcome = new Welcome();
+        UserAccount user = new UserAccount("123-4567", "xxxx");
         Library library = setupLibrary();
         Menu menu = setupMenu(library);
 
         welcome.welcomeMessage();
-        if (welcome.isUserAccountValid(welcome.setUserAccountNum())) {
+        if (user.isUserAccountNumValid(user.setUserAccountNum()) && user.isUserAccountPWValid(user.setUserAccountPW())) {
             while (true) {
                 menu.showOptions();
                 Scanner scan = new Scanner(System.in);
@@ -30,7 +31,7 @@ public class BibliotecaApp {
             }
         }
         else {
-            System.out.println("Sorry, please choose a valid option");
+            System.out.println("Sorry, one of your fields is not valid");
             runApp();
         }
     }
