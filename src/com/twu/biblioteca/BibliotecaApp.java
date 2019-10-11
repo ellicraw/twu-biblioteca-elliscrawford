@@ -13,8 +13,8 @@ public class BibliotecaApp {
 
     public void runApp() {
         Welcome welcome = new Welcome();
-        UserAccount user = new UserAccount("123-4567", "xxxx");
-        Library library = setupLibrary();
+        UserAccount user = new UserAccount("123-4567", "xxxx","bigUser1", "user@email.com", "0123456789");
+        Library library = setupLibrary(user);
         Menu menu = setupMenu(library);
 
         welcome.welcomeMessage();
@@ -36,8 +36,8 @@ public class BibliotecaApp {
         }
     }
 
-    private Library setupLibrary(){
-        Library library = new Library();
+    private Library setupLibrary(UserAccount user){
+        Library library = new Library(user);
         Book b1 = new Book("Animal Farm", "George Orwell", 1945);
         Book b2 = new Book("Educated", "Tara Westover", 2018);
         Book b3 = new Book("The Catcher in the Rye","J. D. Salinger", 1951);
@@ -52,11 +52,12 @@ public class BibliotecaApp {
     private Menu setupMenu(Library library){
         ListBooksOption listBooksOption = new ListBooksOption();
         ListMoviesOption listMoviesOption = new ListMoviesOption();
-        CheckOutOption checkOutOption = new CheckOutOption();
         CheckInOption checkInOption = new CheckInOption();
+        CheckOutOption checkOutOption = new CheckOutOption();
+        DisplayUserOption displayUserOption = new DisplayUserOption();
         QuitOption quitOption = new QuitOption();
         Menu menu = new Menu(library);
-        menu.addOptions(listBooksOption, listMoviesOption, checkOutOption,checkInOption,quitOption);
+        menu.addOptions(listBooksOption, listMoviesOption,checkInOption, checkOutOption, displayUserOption ,quitOption);
         return menu;
     }
 

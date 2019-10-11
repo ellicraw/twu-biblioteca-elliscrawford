@@ -7,10 +7,13 @@ public class Library {
     private ArrayList<Book> books;
     private ArrayList<Movie> movies;
     private ArrayList<Book> checkedOutBooks = new ArrayList<Book>();
+    private UserAccount user;
 
-    public Library() {
+    public Library(UserAccount user) {
         this.books = new ArrayList<Book>();
         this.movies = new ArrayList<Movie>();
+        this.user = user;
+        
     }
 
     public void addBooks(Book... libraryItemsToAdd) {
@@ -65,6 +68,13 @@ public class Library {
         else {
             System.out.println("That is not a valid book to return");
         }
+    }
+
+    public void displayUserInfo(){
+        System.out.println("Username : " + user.getUserName());
+        System.out.println("User email: " + user.getUserEmail());
+        System.out.println("User phone number: " + user.getUserPhoneNum());
+
     }
 
     private void removeBook(String title) {

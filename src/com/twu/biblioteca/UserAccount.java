@@ -4,12 +4,19 @@ import java.util.Scanner;
 
 public class UserAccount {
     private String userAccountNum;
-    private String password;
+    private String userPassword;
+    private String userName;
+    private String userEmail;
+    private String userPhoneNum;
+
     Scanner scan = new Scanner(System.in);
 
-    public UserAccount(String userAccountNum, String password){
+    public UserAccount(String userAccountNum, String userPassword, String userName, String userEmail, String userPhoneNum){
         this.userAccountNum = userAccountNum;
-        this.password = password;
+        this.userPassword = userPassword;
+        this.userName = userName;
+        this.userEmail = userEmail;
+        this.userPhoneNum = userPhoneNum;
     }
 
     public String setUserAccountNum() {
@@ -35,7 +42,19 @@ public class UserAccount {
     }
 
     public boolean isUserAccountPWValid(String userInput) {
-        return password.equals(userInput);
+        return userPassword.equals(userInput);
+    }
+
+    public String getUserName(){
+        return userName;
+    }
+
+    public String getUserEmail() {
+        return userEmail;
+    }
+
+    public String getUserPhoneNum() {
+        return userPhoneNum;
     }
 
 }
